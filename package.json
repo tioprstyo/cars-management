@@ -20,6 +20,7 @@
     "react-icons": "^5.0.1",
     "react-router-dom": "^6.22.0",
     "react-scripts": "5.0.1",
+    "recoil": "^0.7.7",
     "sort-by": "^1.2.0",
     "tailwindcss": "^3.4.1",
     "typescript": "^4.4.2",
@@ -30,7 +31,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "npm run build && surge ./build/ praisindo-article-news.sh/"
+    "deploy": "npm run build && surge ./build/ praisindo-article-news.surge.sh/"
   },
   "eslintConfig": {
     "extends": [

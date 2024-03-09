@@ -5,10 +5,9 @@ const Header = () => {
   const navigate = useNavigate();
 
   return (
-    <div className='flex w-full shadow-md px-6 py-4'>
+    <div className='fixed top-0 bg-white z-10 w-full shadow-md px-6 md:py-4 py-3'>
       <button className='flex' onClick={() => navigate('/')}>
-        <img src={require('../../assets/img/praisindo-logo.png')} alt="brand-logo" className='h-14 w-auto' />
-        <p className='self-center font-bold text-2xl ml-2'>Articles</p>
+        <img src={require('assets/img/nyt-logo.png')} alt="brand-logo" className='md:h-14 h-8 w-auto' />
       </button>
     </div>
   )

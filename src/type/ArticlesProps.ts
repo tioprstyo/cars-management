@@ -10,6 +10,7 @@ export interface ArticlesProps {
   lead_paragraph: string;
   news_desk: string;
   section_name: string;
+  subsection_name: string;
   snippet: string;
   source: string;
   type_of_material: string;

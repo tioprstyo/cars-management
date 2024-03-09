@@ -2,16 +2,19 @@ import {
   createBrowserRouter,
   Outlet,
 } from "react-router-dom";
-import Products from './views/products'
-import {Header} from "./components";
-import ProductDetail from "./views/products/detail";
+import Articles from 'views/articles'
+import { Header, Footer } from "components";
+import ProductDetail from "views/articles/detail";
 
 const Layout = () => {
   return (
-    <>
+    <div className="relative">
       <Header />
-      <Outlet />
-    </>
+      <div className="md:mt-24 mt-14">
+        <Outlet />
+      </div>
+      <Footer />
+    </div>
   )
 };
 
@@ -21,7 +24,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Products />,
+        element: <Articles />,
       },
       {
         path: "/detail",
