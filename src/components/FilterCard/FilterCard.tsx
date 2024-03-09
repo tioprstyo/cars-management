@@ -36,8 +36,8 @@ const FilterCard = () => {
         <p className='mb-2 text-left font-semibold'>News Desk</p>
         {
           newsDeskList && newsDeskList.map((e: string, index: number) => (
-            <div className='mb-1 flex' key={index + 2}>
-              <input type="checkbox" id={`category-${index + 2}`} name={`category-${index + 2}`} className='self-center mr-2' value={e} onChange={onFilterByNewsDesk}></input>
+            <div className='mb-1 flex' key={index}>
+              <input type="checkbox" id={`category-${index}`} name={`category-${index}`} className='self-center mr-2' value={e} onChange={onFilterByNewsDesk}></input>
               <p>{e.charAt(0).toUpperCase() + e.slice(1)}</p>
             </div>
           ))
@@ -47,8 +47,8 @@ const FilterCard = () => {
         <p className='mb-2 text-left font-semibold'>Material</p>
         {
           typeOfMaterialList && typeOfMaterialList.map((e: string, index: number) => (
-            <div className='mb-1 flex' key={index + 2}>
-              <input type="checkbox" id={`category-${index + 2}`} name={`category-${index + 2}`} className='self-center mr-2' value={e} onChange={onFilterByMaterial}></input>
+            <div className='mb-1 flex' key={index}>
+              <input type="checkbox" id={`category-${index}`} name={`category-${index}`} className='self-center mr-2' value={e} onChange={onFilterByMaterial}></input>
               <p>{e.charAt(0).toUpperCase() + e.slice(1)}</p>
             </div>
           ))
