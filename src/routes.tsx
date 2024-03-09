@@ -10,7 +10,7 @@ const Layout = () => {
   return (
     <div className="relative">
       <Header />
-      <div className="md:mt-24 mt-14">
+      <div className="md:mt-24 mt-16 md:mb-15 mb-5">
         <Outlet />
       </div>
       <Footer />
