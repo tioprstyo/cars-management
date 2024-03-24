@@ -2,9 +2,8 @@ import {
   createBrowserRouter,
   Outlet,
 } from "react-router-dom";
-import Articles from 'views/articles'
+import Cars from 'views/cars'
 import { Header, Footer } from "components";
-import ProductDetail from "views/articles/detail";
 
 const Layout = () => {
   return (
@@ -24,11 +23,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Articles />,
-      },
-      {
-        path: "/detail",
-        element: <ProductDetail />,
+        element: <Cars />,
       },
     ]
   }

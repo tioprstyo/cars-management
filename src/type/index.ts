@@ -1,2 +1,2 @@
-export * from './ArticlesProps';
-export * from './ArticleCardProps';
+export * from './CarsProps';
+export * from './CarsCardProps';

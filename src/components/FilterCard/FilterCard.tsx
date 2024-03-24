@@ -1,58 +1,96 @@
 import React from 'react';
 import { useRecoilState, useRecoilValue } from 'recoil';
-import { newDesks, typeOfMaterial, newDesksSelected, materialSelected } from 'store';
+import { brands, brandSelected, cylinders, cylinderSelected, fuelTypes, fuelTypeSelected, transmissions, transmissionSelected } from 'store';
+import { UpperCaseFirstLetter } from 'utils';
 
 const FilterCard = () => {
-  const newsDeskList = useRecoilValue<string[]>(newDesks);
-  const typeOfMaterialList = useRecoilValue<string[]>(typeOfMaterial);
-  const [newsDeskSelect, setNewsDeskSelect] = useRecoilState<string[]>(newDesksSelected);
-  const [materialSelect, setMaterialSelect] = useRecoilState<string[]>(materialSelected);
-
-  const onFilterByNewsDesk = (e: React.ChangeEvent<HTMLInputElement>) => {
-    let filterByNewsDesk = [...newsDeskSelect];
-    if (e.target.checked) {
-      filterByNewsDesk.push(e.target.value);
-    } else {
-      filterByNewsDesk = newsDeskSelect.filter(filter => filter !== e.target.value);
-    }
-    setNewsDeskSelect(filterByNewsDesk);
-  }
-
-  const onFilterByMaterial = (e: React.ChangeEvent<HTMLInputElement>) => {
-    let filterByMaterial = [...materialSelect];
-    if (e.target.checked) {
-      filterByMaterial.push(e.target.value);
-    } else {
-      filterByMaterial = materialSelect.filter(filter => filter !== e.target.value);
-    }
-    console.log(filterByMaterial)
-    setMaterialSelect(filterByMaterial);
-  }
+  const Brand = useRecoilValue<string[]>(brands);
+  const Cylinder = useRecoilValue<string[]>(cylinders);
+  const Transmition = useRecoilValue<string[]>(transmissions);
+  const FuelType = useRecoilValue<string[]>(fuelTypes);
+  const [brandIsSelect, setBrandIsSelect] = useRecoilState<string>(brandSelected);
+  const [cylinderIsSelect, setCylinderIsSelect] = useRecoilState<string>(cylinderSelected);
+  const [transmissionIsSelect, setTransmissionIsSelect] = useRecoilState<string>(transmissionSelected);
+  const [fuelTypeIsSelect, setFuelTypeIsSelect] = useRecoilState<string>(fuelTypeSelected);
 
   return (
-    <div className='md:col-span-1 shadow-lg p-4 md:min-h-screen md:min-w-[200px]'>
+    <div className='md:col-span-1 shadow-lg p-4 md:h-full md:min-w-[200px]'>
       <h2 className='text-lg font-bold mb-3 text-left'>Filter By</h2>
       <div className='mt-5'>
-        <p className='mb-2 text-left font-semibold'>News Desk</p>
+        <p className='mb-2 text-left font-semibold'>Brand</p>
+        <form>
         {
-          newsDeskList && newsDeskList.map((e: string, index: number) => (
+          Brand && Brand.map((e: string, index: number) => (
             <div className='mb-1 flex' key={index}>
-              <input type="checkbox" id={`category-${index}`} name={`category-${index}`} className='self-center mr-2' value={e} onChange={onFilterByNewsDesk}></input>
-              <p>{e.charAt(0).toUpperCase() + e.slice(1)}</p>
+              <input
+                type="radio"
+                className='mr-3'
+                name={`brand-list-${index}`}
+                value={e}
+                checked={e === brandIsSelect.toLowerCase()}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => setBrandIsSelect(e.target.value)} />
+              <label htmlFor={e}>{UpperCaseFirstLetter(e)}</label>
             </div>
           ))
-        }
+          }
+        </form>
       </div>
       <div className='mt-5'>
-        <p className='mb-2 text-left font-semibold'>Material</p>
+        <p className='mb-2 text-left font-semibold'>Fuel Type</p>
+        <form>
+          {
+            FuelType && FuelType.map((e: string, index: number) => (
+              <div className='mb-1 flex' key={index}>
+                <input
+                  type="radio"
+                  className='mr-3'
+                  name={`brand-list-${index}`}
+                  value={e}
+                  checked={e === fuelTypeIsSelect.toLowerCase()}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) => setFuelTypeIsSelect(e.target.value)} />
+                <label htmlFor={e}>{UpperCaseFirstLetter(e)}</label>
+              </div>
+            ))
+          }
+        </form>
+      </div>
+      <div className='mt-5'>
+        <p className='mb-2 text-left font-semibold'>Transmission</p>
+        <form>
+          {
+            Transmition && Transmition.map((e: string, index: number) => (
+              <div className='mb-1 flex' key={index}>
+                <input
+                  type="radio"
+                  className='mr-3'
+                  name={`brand-list-${index}`}
+                  value={e}
+                  checked={e === transmissionIsSelect.toLowerCase()}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) => setTransmissionIsSelect(e.target.value)} />
+                <label htmlFor={e}>{UpperCaseFirstLetter(e)}</label>
+              </div>
+            ))
+          }
+        </form>
+      </div>
+      <div className='mt-5'>
+        <p className='mb-2 text-left font-semibold'>Cylinder</p>
+        <form>
         {
-          typeOfMaterialList && typeOfMaterialList.map((e: string, index: number) => (
+          Cylinder && Cylinder.map((e: string, index: number) => (
             <div className='mb-1 flex' key={index}>
-              <input type="checkbox" id={`category-${index}`} name={`category-${index}`} className='self-center mr-2' value={e} onChange={onFilterByMaterial}></input>
-              <p>{e.charAt(0).toUpperCase() + e.slice(1)}</p>
+              <input
+                type="radio"
+                className='mr-3'
+                name={`brand-list-${index}`}
+                value={e}
+                checked={e === cylinderIsSelect.toLowerCase()}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => setCylinderIsSelect(e.target.value)} />
+              <label htmlFor={e}>{UpperCaseFirstLetter(e)}</label>
             </div>
           ))
-        }
+          }
+        </form>
       </div>
     </div>
   )
